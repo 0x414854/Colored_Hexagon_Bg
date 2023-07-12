@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    --v: calc(max(9vw, 11vh));
+}
+body {
+    background: rgb(29, 43, 138);
+}
+body:hover .cursor {
+    background:  radial-gradient(circle, rgba(0, 255, 0, 1) 0%, rgba(0, 255, 0, 0) 70%);
+    visibility: visible;
+}
+.main_container {
+    height: 100vh;
+    overflow: hidden;
+}
+.row {
+    display: inline-flex;
+    margin-top: calc(var(--v) * -0.32);;
+    margin-left: calc(var(--v) * -0.5);;
+}
+.row:nth-child(even) {
+    margin-left: calc(var(--v) * 0.02);
+}
+.hexagon {
+    position: relative;
+    width: var(--v);
+    height: calc(var(--v) * 1.1);
+    margin: calc(var(--v) * 0.03) calc(var(--v) * 0.02);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(90deg, rgba(25, 25, 25, 0.7) 50%, rgba(10, 10, 10, 0.85) 50%);
+    background: rgba(15, 15, 15, 1);
+    text-align: center;
+    line-height: calc(var(--v)* 1.2);
+    font-size: 20px;
+    transition: 1s;
+}
+a.hexagon {
+    background: rgba(20, 20, 20, 1);
+    color: rgba(25, 25, 25, 1);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+a.hexagon:hover {
+    color: rgba(0, 0, 0, 1);
+    background: rgba(255, 255, 255, 0.6);
+}
+.cursor {
+    position: absolute;
+    width: calc(var(--v) * 8.5);
+    height: calc(var(--v) * 8.5);
+    border-radius: 50%;
+    animation: anim 2s linear infinite;
+    visibility: hidden;
+    transform:  translate(-50%, -50%);
+    transition:  .1s;
+    /* box-shadow:  0 0 100px rgba(0, 255, 0, 1); */
+}
+@keyframes anim {
+    0% {
+        filter:  hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
